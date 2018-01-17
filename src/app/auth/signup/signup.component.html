@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSignup(f)" #f="ngForm" class="my-div-small jumbotron" style="margin-right:20%">
+    <div class="form-group" >
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email"
+       class="form-control" required ngModel >
+    </div>
+    <div class="form-group ">
+        <label for="fname">Full Name:</label>
+        <input type="text" name="fname" id="fname"
+         class="form-control" required ngModel >
+      </div>
+    <div class="form-group ">
+        <label for="contact">Contact:</label>
+        <input type='tel' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'  name="contact" id="contact"
+         class="form-control"  required ngModel >
+      </div>
+      <div class="form-group ">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password"
+           class="form-control" required ngModel >
+        </div>
+        <div class="form-group">
+            <label for="repassword">Re-Password:</label>
+            <input type="password" name="repassword" id="repassword"
+             class="form-control"  minlength="4" required ngModel >
+          </div>
+          
+          <input type="checkbox" checked="checked"> Remember me
+          <p class="privacy-para">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Sign Up</button>
+  </form>

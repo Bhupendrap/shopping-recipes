@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" 
+      data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" style="cursor:pointer;" >Shoping & Recipe</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive = "active">
+          <a routerLink = "/recipes" >Recipe</a></li>
+        <li routerLinkActive = "active">
+          <a routerLink = "/shopping-list" >Shoping list</a></li> 
+        <li class="dropdown" appDirective>
+              <button class="btn btn-primary dropdown-toggle"
+               data-toggle="dropdown">Manage
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li style="cursor:pointer;"><a (click)="onSaveData()">Fetch</a></li>
+                <li style="cursor:pointer;"><a  (click)="onFetchData()">save</a></li>
+              </ul>
+        </li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li routerLinkActive = "active"><a routerLink = "/signup">
+          <span class="glyphicon glyphicon-user">
+          </span> Sign Up</a></li>
+          <li routerLinkActive = "active"><a routerLink = "/signin">
+          <span class="glyphicon glyphicon-log-in">
+          </span> Login</a></li>
+        </ng-template>
+            <li style="cursor:pointer;">
+              <a  (click)="onSignOut()"
+              *ngIf="authService.isAuthenticated()" >
+            <span class="glyphicon glyphicon-log-out">
+            </span> LogOut</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
